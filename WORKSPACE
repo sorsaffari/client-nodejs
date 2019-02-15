@@ -6,8 +6,11 @@ git_repository(
     commit = "7d2f7dd5c831bde2edadadea2bca16ac4648b76f"
 )
 
-load("@graknlabs_grakn//dependencies/npm:dependencies.bzl", "node_dependencies")
-node_dependencies()
+git_repository(
+        name = "build_bazel_rules_nodejs",
+        remote = "https://github.com/graknlabs/rules_nodejs.git",
+        commit = "ac3f6854365f119130186f971588514ccff503ab",
+)
 
 load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
 rules_nodejs_dependencies()
